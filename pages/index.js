@@ -9,17 +9,9 @@ import QuizBackground from '../src/Components/QuizBackground'
 import QuizLogo from '../src/Components/QuizLogo'
 import Footer from '../src/Components/Footer'
 import GitHubCorner from '../src/Components/GitHubCorner'
-
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
+import Input from '../src/Components/Input'
+import Button from '../src/Components/Button'
+import QuizContainer from '../src/Components/QuizContainer'
 
 export default function Home() {
   const router = useRouter()
@@ -30,29 +22,30 @@ export default function Home() {
        <Head>
         <title>AluraQuiz - Modelo Base</title>
        </Head>
-       <QuizLogo/>
        <QuizContainer>
+        <QuizLogo/>
         <Widget>
           <Widget.Header>
-            <h1>The legends of zelda</h1>
+            <h1>Coders Quiz</h1>
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={(e) => {
               e.preventDefault()
               router.push(`/quiz?name=${name}`)
             }}>
-              <input 
+              <Input 
+                name='nomeDoUsuario'
                 placeholder='Diz ai seu nome!'
                 onChange={(e) => {
                   setName(e.target.value)
                 }}
                 />
-              <button 
+              <Button 
                 type='submit'
                 disabled={name.length === 0}
                 >
                 Jogar
-              </button>
+              </Button>
             </form>
           </Widget.Content>
         </Widget>
