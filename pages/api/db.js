@@ -11,5 +11,5 @@ export default function(request, response) {
   response.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
 
 
-  res.json(db)
+  response.json(db)
 }
